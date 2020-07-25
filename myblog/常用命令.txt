@@ -1,0 +1,29 @@
+1. 创建一个项目：django-admin.py startproject <项目名称>
+
+django-admin startproject my_project
+
+2. 创建一个应用：python manage.py startapp <应用名称>
+
+python manage.py startapp my_app
+
+3. 启动项目：python manage.py runserver <web端口号>
+
+python manage.py runserver 8000
+
+4. 同步更改数据库表或字段
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+5. 清空数据库
+
+python manage.py flush
+
+6. 创建超级管理员
+
+python manage.py createsuperuser
+
+7. 修改用户密码
+
+python manage.py changepassword username
