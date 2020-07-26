@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/icofont.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/custom-menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'my_blog/css/responsive.css' %}">
+</head>
+<body>
+<div class="thetop"></div>
+<div class='backToTop'>
+    <a href="#" class='scroll'>
+        <span>T</span>
+        <span>O</span>
+        <span>P</span>
+        <span class="go-up">
+					<i class="icofont icofont-long-arrow-up"></i>
+				</span>
+    </a>
+</div>
+{% include 'my_blog/header.html' %}
+<!-- 预留具体页面的位置 -->
+{% block content %}{% endblock content %}
+
+{% include 'my_blog/footer.html' %}
+<script type="text/javascript" src="{% static 'my_blog/js/jquery-3.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'my_blog/js/materialize.js' %}"></script>
+<script type="text/javascript" src="{% static 'my_blog/js/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'my_blog/js/custom.js' %}"></script>
+<script type="text/javascript">
+</script>
+</body>
+
+</html>

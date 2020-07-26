@@ -1,0 +1,20 @@
+{% load static %}
+<div class="sidebar-testimonial mb-30">
+    <div class="sidebar-title center-align">
+        <h2>文章作者介绍</h2>
+    </div>
+    <div class="carousel carousel-slider center" data-indicators="true">
+        {% for author in authors %}
+            <div class="carousel-item">
+            <div class="item-img">
+                <span></span>
+            </div>
+            <h2>{{ author.name }}</h2>
+            <small>{{ author.job }}</small>
+            <p>
+                {{ author.description }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
