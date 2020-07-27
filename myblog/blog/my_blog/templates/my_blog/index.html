@@ -7,12 +7,11 @@
 {% block content %}
     <section id="blog-slider-section" class="blog-slider-section w100dt mb-50">
         <div class="container">
-
             <div class="slider">
                 <ul class="slides">
-                    {% for carousel in carousel %}
+                    {% for carousel in carousels %}
                         <li class="slider-item">
-                            <img src="{{ carousel.img_url }}" alt="Image">
+                            <img src="{{ carousel.image.url }}" alt="Image">
                             <div class="caption center-align">
                                 <a href="#" class="tag l-blue w100dt mb-30">Travel</a>
                                 <h1 class="card-title mb-10">
@@ -41,14 +40,14 @@
                     <div class="item">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img src="{{ article1.img_link }}" alt="Image">
+                                <img src="{{ article1.image.url }}" alt="Image">
                                 <span class="effect"></span>
                             </div>
                             <!-- /.card-image -->
                             <div class="card-stacked">
                                 <div class="card-content">
                                     <a href="#" class="tag left l-blue mb-10">{{ article1.category }}</a>
-                                    <a href="single-blog.html" class="sm-name">{{ article1.title }}</a>
+                                    <a href="{% url 'my_blog:article_detail' article1.id %}" class="sm-name">{{ article1.title }}</a>
                                 </div>
                                 <!-- /.card-content -->
                                 <div class="card-action">
@@ -81,7 +80,7 @@
                         <div class="blogs mb-30">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="{{ article.img_link }}" alt="Image">
+                                    <img src="{{ article.image.url }}" alt="Image">
                                     <a class="btn-floating center-align cmn-bgcolor halfway-fab waves-effect waves-light">
                                         <i class="icofont icofont-camera-alt"></i>
                                     </a>
@@ -91,7 +90,7 @@
                                     <p>
                                         <a href="#" class="tag left w100dt l-blue mb-30">{{ article.category }}</a>
                                     </p>
-                                    <a href="single-blog.html" class="card-title">
+                                    <a href="{% url 'my_blog:article_detail' article.id %}" class="card-title">
                                         {{ article.title }}
                                     </a>
                                     <p class="mb-30">
