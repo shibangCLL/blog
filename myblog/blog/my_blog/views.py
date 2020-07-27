@@ -10,8 +10,6 @@ def article_list(request):
     carousels = Carousel.objects.all()
     articles_top = Article.objects.all().filter(is_top=True)
     authors = AboutAuthor.objects.all()
-    print(carousels)
-
     context = {'articles': articles, 'carousels': carousels, 'articles_top': articles_top, 'authors': authors}
     return render(request, 'my_blog/index.html', context)
 

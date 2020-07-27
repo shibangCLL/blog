@@ -1,0 +1,50 @@
+<div class="featured-posts w100dt mb-30">
+    <div class="sidebar-title center-align">
+        <h2>精选文章</h2>
+    </div>
+    <div class="sidebar-posts">
+        {% for article1 in articles_top %}
+            <div class="card">
+                <div class="card-image mb-10">
+                    <img src="{{ article1.image.url }}" alt="Image">
+                    <span class="effect"></span>
+                </div>
+                <!-- /.card-image -->
+                <div class="card-content w100dt">
+                    <p>
+                        <a href="#" class="tag left w100dt l-blue mb-10">{{ article1.category }}</a>
+                    </p>
+                    <a href="single-blog.html" class="card-title">
+                        {{ article1.title }}
+                    </a>
+                    <ul class="post-mate-time left">
+                        <li>
+                            <p class="hero left">
+                                By - <a href="#" class="l-blue">{{ article1.author }}</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                    <ul class="post-mate right">
+                        <li class="like">
+                            <a href="#">
+                                <i class="icofont icofont-heart-alt"></i> 55
+                            </a>
+                        </li>
+                        <li class="comment">
+                            <a href="#">
+                                <i class="icofont icofont-comment"></i> 32
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+
+        <!-- /.card -->
+
+
+    </div>
+    <!-- /.sidebar-posts -->
+
+</div>
