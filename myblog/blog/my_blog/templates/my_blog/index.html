@@ -38,7 +38,7 @@
                     <div class="item">
                         <div class="card horizontal">
                             <div class="card-image">
-                                <img src="{{ article1.image.url }}" alt="Image">
+                                <img src="{{ article1.image.url }}"  alt="Image">
                                 <span class="effect"></span>
                             </div>
                             <!-- /.card-image -->
@@ -74,7 +74,7 @@
                         <div class="blogs mb-30">
                             <div class="card">
                                 <div class="card-image">
-                                    <img src="{{ article.image.url }}" alt="Image">
+                                    <img src="{{ article.image.url }}" height="70%" alt="Image">
                                     <a class="btn-floating center-align cmn-bgcolor halfway-fab waves-effect waves-light">
                                         <i class="icofont icofont-camera-alt"></i>
                                     </a>
@@ -117,7 +117,6 @@
                         </div>
                     {% endfor %}
 
-
                     <ul class="pagination w100dt">
                         <li class="waves-effect"><a href="#!"><i class="icofont icofont-simple-left"></i></a></li>
                         <li class="active"><a href="#!">1</a></li>
@@ -127,11 +126,7 @@
                         <li class="waves-effect"><a href="#!">5</a></li>
                         <li class="waves-effect"><a href="#!"><i class="icofont icofont-simple-right"></i></a></li>
                     </ul>
-
                 </div>
-                <!-- colm8 -->
-
-
                 <div class="col s12 m4 l4">
                     {% include "my_blog/aboutme.html" %}
                     {% include "my_blog/followme.html" %}
@@ -139,12 +134,8 @@
                     {% include "my_blog/top-posts.html" %}
                     {% include "my_blog/subscribe.html" %}
                 </div>
-                <!-- colm4 -->
-
             </div>
-            <!-- row -->
         </div>
-        <!-- container -->
     </section>
 
 {% endblock content %}
