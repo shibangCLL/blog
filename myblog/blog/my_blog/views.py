@@ -21,4 +21,4 @@ def article_detail(request, id):
     # 需要传递给模板的对象
     context = { 'article': article }
     # 载入模板，并返回context对象
-    return render(request, 'my_blog/single-blog.html', context)
+    return render(request, 'my_blog2/table.html', context)
