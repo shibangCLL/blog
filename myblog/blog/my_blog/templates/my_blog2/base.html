@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords" content="WordPress主题站,wordpress模板,wordpress博客主题,wordpress cms图片主题,maolai博客"/>
+    <meta name="description"
+          content="maolai博客分享各种wordpress主题下载,wordpress企业主题,wordpress cms主题,wordpress中文主题,wordpress视频主题,wordpress图片主题,wordpress博客模板,wordpress音乐主题"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'my_blog2/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'my_blog2/css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'my_blog2/css/m.css' %}" rel="stylesheet">
+    <script src="{% static 'my_blog2/js/jquery.min.js' %}"></script>
+    <script src="{% static 'my_blog2/js/hc-sticky.js' %}"></script>
+    <script src="{% static 'my_blog2/js/comm.js' %}"></script>
+    <script src="{% static 'my_blog2/js/modernizr.js' %}"></script>
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.8/styles/github.min.css" rel="stylesheet">
+    <style>
+        .codehilite {
+            padding: 0;
+        }
+
+        /* for block of numbers */
+        .hljs-ln-numbers {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            text-align: center;
+            color: #ccc;
+            border-right: 1px solid #CCC;
+            vertical-align: top;
+            padding-right: 5px;
+        }
+
+        .hljs-ln-n {
+            width: 30px;
+        }
+
+        /* for block of code */
+        .hljs-ln .hljs-ln-code {
+            padding-left: 10px;
+            white-space: pre;
+        }
+    </style>
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+</head>
+<body>
+{% include 'my_blog2/header.html' %}
+{% block content %}{% endblock content %}
+{% include 'my_blog/footer.html' %}
+<a href="#" class="cd-top">Top</a>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+</body>
+</html>

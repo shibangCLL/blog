@@ -11,7 +11,7 @@ def article_list(request):
     articles_top = Article.objects.all().filter(is_top=True)
     authors = AboutAuthor.objects.all()
     context = {'articles': articles, 'carousels': carousels, 'articles_top': articles_top, 'authors': authors}
-    return render(request, 'my_blog/index.html', context)
+    return render(request, 'my_blog2/index.html', context)
 
 
 def article_detail(request, id):
