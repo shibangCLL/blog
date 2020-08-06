@@ -10,12 +10,12 @@ from django.core.paginator import Paginator
 def article_list(request):
     articles = Article.objects.all()
 
-    paginator = Paginator(articles, 5)
-    # 获取 url 中的页码
-    page = request.GET.get('page')
-    # 将导航对象相应的页码内容返回给 articles
-
-    articles = paginator.page(page)
+    # paginator = Paginator(articles, 4)
+    # # 获取 url 中的页码
+    # page = request.GET.get('page')
+    # # 将导航对象相应的页码内容返回给 articles
+    #
+    # articles = paginator.page(page)
 
     carousels = Carousel.objects.all()
     articles_top = Article.objects.all().filter(is_top=True)
@@ -27,6 +27,7 @@ def article_list(request):
 def article_detail(request, id):
     # 取出相应的文章
     article = Article.objects.get(id=id)
+    article.update_views()
     article.body = article.body_to_markdown()
     # 需要传递给模板的对象
     context = {'article': article}
