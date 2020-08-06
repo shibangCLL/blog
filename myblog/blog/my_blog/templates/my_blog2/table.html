@@ -1,344 +1,230 @@
+{% extends "my_blog2/base.html" %}
 {% load static %}
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>WordPress摄影博客/照片下载主题Paintable - maolai个人博客</title>
-    <meta name="keywords" content="WordPress主题站,wordpress模板,wordpress博客主题,wordpress cms图片主题,maolai博客"/>
-    <meta name="description"
-          content="maolai博客分享各种wordpress主题下载,wordpress企业主题,wordpress cms主题,wordpress中文主题,wordpress视频主题,wordpress图片主题,wordpress博客模板,wordpress音乐主题"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'my_blog2/css/base.css' %}" rel="stylesheet">
-    <link href="{% static 'my_blog2/css/index.css' %}" rel="stylesheet">
-    <link href="{% static 'my_blog2/css/m.css' %}" rel="stylesheet">
-    <script src="{% static 'my_blog2/js/jquery.min.js' %}"></script>
-    <script src="{% static 'my_blog2/js/hc-sticky.js' %}"></script>
-    <script src="{% static 'my_blog2/js/comm.js' %}"></script>
-    <script src="{% static 'my_blog2/js/modernizr.js' %}"></script>
-    <link href="https://cdn.bootcss.com/highlight.js/9.15.8/styles/github.min.css" rel="stylesheet">
-    <style>
-        .codehilite {
-            padding: 0;
-        }
+{% load blog_extras %}
+{% block title %}
+    {{ article.title }}
+{% endblock title %}
 
-        /* for block of numbers */
-        .hljs-ln-numbers {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+{% block content %}
+    <div class="wrapper">
+        <main>
+            <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">{{ article.title }}</a></h2>
+            <div class="infosbox">
+                <div class="newsview">
+                    <h3 class="news_title">{{ article.title }}</h3>
+                    <div class="bloginfo">
+                        <ul>
+                            <li class="author">{{ article.author }}</li>
+                            <li class="lmname">图片主题</li>
+                            <li class="timer">{{ article.create_date }}</li>
+                            <li class="view">
+                                <script src="/e/public/ViewClick/?classid=49&amp;id=884&amp;addclick=1"></script>
+                                297人已阅读
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tags"><a href="/e/tags/?tagname=%B8%F6%C8%CB%B2%A9%BF%CD&amp;tempid=13" target="_blank">个人博客模板</a>
+                        &nbsp; <a href="/e/tags/?tagname=%B5%DB%B9%FAcms&amp;tempid=13" target="_blank">wordpress主题</a>
+                    </div>
+                    <div class="news_about"><strong>简介</strong>{{ article.summary }}...
+                    </div>
+                    <div class="news_con">
+                        {{ article.body|safe }}
 
-            text-align: center;
-            color: #ccc;
-            border-right: 1px solid #CCC;
-            vertical-align: top;
-            padding-right: 5px;
-        }
-
-        .hljs-ln-n {
-            width: 30px;
-        }
-
-        /* for block of code */
-        .hljs-ln .hljs-ln-code {
-            padding-left: 10px;
-            white-space: pre;
-        }
-    </style>
-    <!--[if lt IE 9]>
-
-    <![endif]-->
-</head>
-<body>
-<header id="header">
-    <div class="navbar">
-        <div class="topbox">
-            <p class="welcome">这是文字详情页面，网站所有的详情页面都是统一的，设有简介、关键字词标签，点赞功能！</p>
-            <div class="searchbox">
-                <div id="search_bar" class="search_bar">
-                    <form id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
-                        <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
-                        <input type="hidden" name="show" value="title"/>
-                        <input type="hidden" name="tempid" value="1"/>
-                        <input type="hidden" name="tbname" value="news">
-                        <input type="hidden" name="Submit" value="搜索"/>
-                        <p class="search_ico"><span></span></p>
-                    </form>
+                        <p>摄影和博客/照片下载WordPress主题</p>
+                        <p>照片(演示)=via theme options>blog settings，you have the option to disable the title and the
+                            date.此外，还可以选择使用默认分页或无限滚动。在文章页面中，默认情况下，下载部分(文本+按钮)被禁用，因此，如果您想将主题用作照片，可以启用它，这样用户就可以下载完整尺寸的特色图片，照片可以有任何尺寸。</p>
+                        <p><img alt="" src="{% static 'my_blog2/images/18.jpg' %}"></p>
+                        <p>个人博客(demo)=默认情况下，标题和日期将显示(您可以从主题选项>博客设置中隐藏该标题和日期)，并且在文章页面中，下载部分将被禁用，以便用作个人博客。</p>
+                        <p>upload(submition
+                            form)=anonymous用户可以共享任何图片，通过上传特色图片，照片可以有任何大小，如果您选择，文章将立即显示在您的博客上，或者您可以选择“发布/挂起或草稿”状态，这样您可以在项目/照片出现在您的网站上之前对其进行查看。</p>
+                        <p>摄影个人博客主题</p>
+                        <p>照片下载WordPress主题</p>
+                        <p>MasonryPhotography博客风格</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-navigation">
-        <nav>
-            <div class="logo"><a href="http://www.lmlblog.com">maolai个人博客</a></div>
-            <h2 id="mnavh"><span class="navicon"></span></h2>
-            <ul id="starlist">
-                <li><a href="index.html">网站首页</a></li>
-                <li><a href="http://www.lmlblog.com/wo/">关于我</a></li>
-                <li><a href="img.html">图片主题</a></li>
-                <li><a href="blog.html">博客主题</a></li>
-                <li class="menu"><a href="wordpress.html">wordpress</a>
-                    <ul class="sub">
-                        <li><a href="#">wordpress教程</a></li>
-                        <li><a href="#">wordpress插件</a></li>
-                    </ul>
-                </li>
-                <li><a href="table.html">table主题</a></li>
-                <li><a href="time.html">时间轴</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<div class="wrapper">
-    <main>
-        <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">{{ article.title }}</a></h2>
-        <div class="infosbox">
-            <div class="newsview">
-                <h3 class="news_title">{{ article.title }}</h3>
-                <div class="bloginfo">
+                <div class="share">
+                    <p class="diggit"><a
+                            href="JavaScript:makeRequest('/e/public/digg/?classid=49&amp;id=884&amp;dotop=1&amp;doajax=1&amp;ajaxarea=diggnum','EchoReturnedText','GET','');">
+                        很赞哦！ </a>(<b id="diggnum">
+                        <script type="text/javascript"
+                                src="/e/public/ViewClick/?classid=49&amp;id=884&amp;down=5"></script>
+                        19</b>)
+                    </p>
+                </div>
+                <div class="nextinfo">
+                    <p>上一篇：<a href="/blogs/876.html">个人和杂志Wordpress响应式清新博客主题Carrie
+                    </a></p>
+                    <p>下一篇：<a href="/blogs/">返回列表</a></p>
+                </div>
+                <div class="otherlink">
+                    <h2>相关文章</h2>
                     <ul>
-                        <li class="author">{{ article.author }}</li>
-                        <li class="lmname">图片主题</li>
-                        <li class="timer">{{ article.create_date }}</li>
-                        <li class="view">
-                            <script src="/e/public/ViewClick/?classid=49&amp;id=884&amp;addclick=1"></script>
-                            297人已阅读
-                        </li>
+                        <li><a href="#" title="响应式Wordpress杂志主题Air Style">响应式Wordpress杂志主题Air Style</a></li>
+                        <li><a href="#" title="个人/旅游/摄影/生活方式/作家/时尚博客主题Bloggo">个人/旅游/摄影/生活方式/作家/时尚博客主题Bloggo</a></li>
+                        <li><a href="#" title="RealBlog-响应式WordPress博客主题">响应式WordPress博客主题RealBlog</a></li>
+                        <li><a href="#" title="html5时尚个人博客模板-技术门户型">现代优雅干净的WordPress主题Wink</a></li>
+                        <li><a href="#" title="现代优雅干净的WordPress主题Wink">html5个人博客模板主题《心蓝时间轴》</a></li>
+                        <li><a href="#" title="古典个人博客模板《江南墨卷》">古典个人博客模板《江南墨卷》</a></li>
+                        <li><a href="#" title="古典风格-个人博客模板">古典风格-个人博客模板</a></li>
+                        <li><a href="#" title="Anonis-响应式Wordpress博客主题">Anonis-响应式Wordpress博客主题</a></li>
+                        <li><a href="#" title="响应式博客Wordpress主题Bonex">响应式博客Wordpress主题Bonex</a></li>
+                        <li><a href="#" title="Kass-多博客/杂志Wordpress主题">Wordpress多博客/杂志主题Kass</a></li>
                     </ul>
                 </div>
-                <div class="tags"><a href="/e/tags/?tagname=%B8%F6%C8%CB%B2%A9%BF%CD&amp;tempid=13" target="_blank">个人博客模板</a>
-                    &nbsp; <a href="/e/tags/?tagname=%B5%DB%B9%FAcms&amp;tempid=13" target="_blank">wordpress主题</a>
-                </div>
-                <div class="news_about"><strong>简介</strong>{{ article.summary }}...
-                </div>
-                <div class="news_con">
-                    {{ article.body|safe }}
-
-                    <p>摄影和博客/照片下载WordPress主题</p>
-                    <p>照片(演示)=via theme options>blog settings，you have the option to disable the title and the
-                        date.此外，还可以选择使用默认分页或无限滚动。在文章页面中，默认情况下，下载部分(文本+按钮)被禁用，因此，如果您想将主题用作照片，可以启用它，这样用户就可以下载完整尺寸的特色图片，照片可以有任何尺寸。</p>
-                    <p><img alt="" src="{% static 'my_blog2/images/18.jpg' %}"></p>
-                    <p>个人博客(demo)=默认情况下，标题和日期将显示(您可以从主题选项>博客设置中隐藏该标题和日期)，并且在文章页面中，下载部分将被禁用，以便用作个人博客。</p>
-                    <p>upload(submition
-                        form)=anonymous用户可以共享任何图片，通过上传特色图片，照片可以有任何大小，如果您选择，文章将立即显示在您的博客上，或者您可以选择“发布/挂起或草稿”状态，这样您可以在项目/照片出现在您的网站上之前对其进行查看。</p>
-                    <p>摄影个人博客主题</p>
-                    <p>照片下载WordPress主题</p>
-                    <p>MasonryPhotography博客风格</p>
+                <div class="news_pl">
+                    <h2>文章评论</h2>
+                    <div class="gbko">
+                        <div id="SOHUCS" sid="15"></div>
+                        <script charset="utf-8" type="text/javascript"
+                                src="https://changyan.sohu.com/upload/changyan.js' %}"></script>
+                        <script type="text/javascript">
+                            window.changyan.api.config({
+                                appid: 'cytamwv5E',
+                                conf: 'prod_9ded3f796a9a7ff9ba9fc72f58944d14'
+                            });
+                        </script>
+                    </div>
                 </div>
             </div>
-            <div class="share">
-                <p class="diggit"><a
-                        href="JavaScript:makeRequest('/e/public/digg/?classid=49&amp;id=884&amp;dotop=1&amp;doajax=1&amp;ajaxarea=diggnum','EchoReturnedText','GET','');">
-                    很赞哦！ </a>(<b id="diggnum">
-                    <script type="text/javascript" src="/e/public/ViewClick/?classid=49&amp;id=884&amp;down=5"></script>
-                    19</b>)
-                </p>
-            </div>
-            <div class="nextinfo">
-                <p>上一篇：<a href="/blogs/876.html">个人和杂志Wordpress响应式清新博客主题Carrie
-                </a></p>
-                <p>下一篇：<a href="/blogs/">返回列表</a></p>
-            </div>
-            <div class="otherlink">
-                <h2>相关文章</h2>
-                <ul>
-                    <li><a href="#" title="响应式Wordpress杂志主题Air Style">响应式Wordpress杂志主题Air Style</a></li>
-                    <li><a href="#" title="个人/旅游/摄影/生活方式/作家/时尚博客主题Bloggo">个人/旅游/摄影/生活方式/作家/时尚博客主题Bloggo</a></li>
-                    <li><a href="#" title="RealBlog-响应式WordPress博客主题">响应式WordPress博客主题RealBlog</a></li>
-                    <li><a href="#" title="html5时尚个人博客模板-技术门户型">现代优雅干净的WordPress主题Wink</a></li>
-                    <li><a href="#" title="现代优雅干净的WordPress主题Wink">html5个人博客模板主题《心蓝时间轴》</a></li>
-                    <li><a href="#" title="古典个人博客模板《江南墨卷》">古典个人博客模板《江南墨卷》</a></li>
-                    <li><a href="#" title="古典风格-个人博客模板">古典风格-个人博客模板</a></li>
-                    <li><a href="#" title="Anonis-响应式Wordpress博客主题">Anonis-响应式Wordpress博客主题</a></li>
-                    <li><a href="#" title="响应式博客Wordpress主题Bonex">响应式博客Wordpress主题Bonex</a></li>
-                    <li><a href="#" title="Kass-多博客/杂志Wordpress主题">Wordpress多博客/杂志主题Kass</a></li>
+        </main>
+        <aside class="sidebar">
+            <div class="fenlei">
+                <ul class="flnav">
+                    <li class="flselect"><a href="#" title="最新文章" class="pall"></a></li>
+                    <li><a href="#" title="站长推荐" class="pgood"></a></li>
+                    <li><a href="#" title="点击排行" class="pbro"></a></li>
+                    <li><a href="#" title="头条关注" class="pfav"></a></li>
                 </ul>
             </div>
-            <div class="news_pl">
-                <h2>文章评论</h2>
-                <div class="gbko">
-                    <div id="SOHUCS" sid="15"></div>
-                    <script charset="utf-8" type="text/javascript"
-                            src="https://changyan.sohu.com/upload/changyan.js' %}"></script>
-                    <script type="text/javascript">
-                        window.changyan.api.config({
-                            appid: 'cytamwv5E',
-                            conf: 'prod_9ded3f796a9a7ff9ba9fc72f58944d14'
-                        });
-                    </script>
-                </div>
+            <div class="newstw">
+                <ul class="sidenews">
+                    <h2>最新主题</h2>
+                    <li><i><img src="{% static 'my_blog2/images/1.jpg' %}"></i>
+                        <p><a href="/">mawiss WordPress博客杂志的主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/2.jpg' %}"></i>
+                        <p><a href="/">vidorev视频的WordPress主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/3.jpg' %}"></i>
+                        <p><a href="/">gridbase -新闻和博客的WordPress主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/4.jpg' %}"></i>
+                        <p><a href="/">minberi报纸编辑WordPress主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/5.jpg' %}"></i>
+                        <p><a href="/">Penta响应博客的WordPress主题</a></p>
+                        <span>2018-05-13</span></li>
+                </ul>
+                <ul class="sidenews">
+                    <h2>主题推荐</h2>
+                    <li><i><img src="{% static 'my_blog2/images/6.jpg' %}"></i>
+                        <p><a href="/">响应博客及商店的WordPress主题blggn</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/7.jpg' %}"></i>
+                        <p><a href="/">Pepper博客/迷你杂志创意的WordPress主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/8.jpg' %}"></i>
+                        <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/9.jpg' %}"></i>
+                        <p><a href="/">WordPress博客和杂志的主题Linx</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/10.jpg' %}"></i>
+                        <p><a href="/">trendion |个人生活博客和杂志的WordPress主题</a></p>
+                        <span>2018-05-13</span></li>
+                </ul>
+                <ul class="sidenews">
+                    <h2>热门主题</h2>
+                    <li><i><img src="{% static 'my_blog2/images/1.jpg' %}"></i>
+                        <p><a href="/">Magneto响应WordPress杂志和博客主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/2.jpg' %}"></i>
+                        <p><a href="/">WordPress瀑布流主题PinThis中文版</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/3.jpg' %}"></i>
+                        <p><a href="/">WordPress音乐主题Always1.8</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/4.jpg' %}"></i>
+                        <p><a href="/">Magneto响应WordPress杂志和博客主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/5.jpg' %}"></i>
+                        <p><a href="/">WordPress图片主题Lovephoto2.0.2分享</a></p>
+                        <span>2018-05-13</span></li>
+                </ul>
+                <ul class="sidenews">
+                    <h2>主题收藏</h2>
+                    <li><i><img src="{% static 'my_blog2/images/12.jpg' %}"></i>
+                        <p><a href="/">wordpress个人博客主题No.7极简模板分享</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/11.jpg' %}"></i>
+                        <p><a href="/">WordPress自适应淘宝客主题MiTao4.5</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/10.jpg' %}"></i>
+                        <p><a href="/">个人博客，属于我的小世界！</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/9.jpg' %}"></i>
+                        <p><a href="/">Helen响应式wordpress博客主题</a></p>
+                        <span>2018-05-13</span></li>
+                    <li><i><img src="{% static 'my_blog2/images/8.jpg' %}"></i>
+                        <p><a href="/">wordpress仿微博个人博客主题tongleer</a></p>
+                        <span>2018-05-13</span></li>
+                </ul>
             </div>
-        </div>
-    </main>
-    <aside class="sidebar">
-        <div class="fenlei">
-            <ul class="flnav">
-                <li class="flselect"><a href="#" title="最新文章" class="pall"></a></li>
-                <li><a href="#" title="站长推荐" class="pgood"></a></li>
-                <li><a href="#" title="点击排行" class="pbro"></a></li>
-                <li><a href="#" title="头条关注" class="pfav"></a></li>
-            </ul>
-        </div>
-        <div class="newstw">
-            <ul class="sidenews">
-                <h2>最新主题</h2>
-                <li><i><img src="{% static 'my_blog2/images/1.jpg' %}"></i>
-                    <p><a href="/">mawiss WordPress博客杂志的主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/2.jpg' %}"></i>
-                    <p><a href="/">vidorev视频的WordPress主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/3.jpg' %}"></i>
-                    <p><a href="/">gridbase -新闻和博客的WordPress主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/4.jpg' %}"></i>
-                    <p><a href="/">minberi报纸编辑WordPress主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/5.jpg' %}"></i>
-                    <p><a href="/">Penta响应博客的WordPress主题</a></p>
-                    <span>2018-05-13</span></li>
-            </ul>
-            <ul class="sidenews">
-                <h2>主题推荐</h2>
-                <li><i><img src="{% static 'my_blog2/images/6.jpg' %}"></i>
-                    <p><a href="/">响应博客及商店的WordPress主题blggn</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/7.jpg' %}"></i>
-                    <p><a href="/">Pepper博客/迷你杂志创意的WordPress主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/8.jpg' %}"></i>
-                    <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/9.jpg' %}"></i>
-                    <p><a href="/">WordPress博客和杂志的主题Linx</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/10.jpg' %}"></i>
-                    <p><a href="/">trendion |个人生活博客和杂志的WordPress主题</a></p>
-                    <span>2018-05-13</span></li>
-            </ul>
-            <ul class="sidenews">
-                <h2>热门主题</h2>
-                <li><i><img src="{% static 'my_blog2/images/1.jpg' %}"></i>
-                    <p><a href="/">Magneto响应WordPress杂志和博客主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/2.jpg' %}"></i>
-                    <p><a href="/">WordPress瀑布流主题PinThis中文版</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/3.jpg' %}"></i>
-                    <p><a href="/">WordPress音乐主题Always1.8</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/4.jpg' %}"></i>
-                    <p><a href="/">Magneto响应WordPress杂志和博客主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/5.jpg' %}"></i>
-                    <p><a href="/">WordPress图片主题Lovephoto2.0.2分享</a></p>
-                    <span>2018-05-13</span></li>
-            </ul>
-            <ul class="sidenews">
-                <h2>主题收藏</h2>
-                <li><i><img src="{% static 'my_blog2/images/12.jpg' %}"></i>
-                    <p><a href="/">wordpress个人博客主题No.7极简模板分享</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/11.jpg' %}"></i>
-                    <p><a href="/">WordPress自适应淘宝客主题MiTao4.5</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/10.jpg' %}"></i>
-                    <p><a href="/">个人博客，属于我的小世界！</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/9.jpg' %}"></i>
-                    <p><a href="/">Helen响应式wordpress博客主题</a></p>
-                    <span>2018-05-13</span></li>
-                <li><i><img src="{% static 'my_blog2/images/8.jpg' %}"></i>
-                    <p><a href="/">wordpress仿微博个人博客主题tongleer</a></p>
-                    <span>2018-05-13</span></li>
-            </ul>
-        </div>
-        <div class="ad"><img src="{% static 'my_blog2/images/7.jpg' %}"></div>
-        <div class="about">
-            <h2 class="hometitle">关于我</h2>
-            <ul>
-                <div class="avatar"><img src="{% static 'my_blog2/images/me.jpg' %}" alt=""></div>
-                <p class="abname">lmlblog | maolai</p>
-                <p class="abtext">无折腾,不生活。一个爱折腾，爱分享的90后。 </p>
-                <li><a class="xlwb" href="http://weibo.com/lai88520" target="_blank"></a></li>
-                <li><a class="txqq" href="http://wpa.qq.com/msgrd?v=3&uin=2195335317&site=qq&menu=yes"
-                       target="_blank"></a></li>
-                <li><a class="rss" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2195335317@qq.com"
-                       target="_blank"></a></li>
-                <li class="wxpic"><a class="wx" href=""></a><img src="{% static 'my_blog2/images/pay.jpg' %}"></li>
-            </ul>
-        </div>
-        <div class="tjlm">
-            <h2 class="hometitle">推荐栏目</h2>
-            <ul>
-                <li><a href="">关于我</a></li>
-                <li><a href="">模板分享</a></li>
-                <li><a href="">博客主题</a></li>
-                <li><a href="">cms主题</a></li>
-                <li><a href="">动漫主题</a></li>
-                <li><a href="http://www.lmlblog.com/tag/images-theme">图片主题</a></li>
-            </ul>
-        </div>
-        <div class="tpjx">
-            <h2 class="hometitle">图片主题</h2>
-            <ul>
-                <li><a href="#"><i><img
-                        src="{% static 'my_blog2/images/1.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-                <li><a href="#"><i><img
-                        src="{% static 'my_blog2/images/2.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-                <li><a href="#"><i><img
-                        src="{% static 'my_blog2/images/3.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-                <li><a href="#"><i><img
-                        src="{% static 'my_blog2/images/4.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-                <li><a href="#"><i><img
-                        src="{% static 'my_blog2/images/5.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-                <li><a href="#"><i><img
-                        src="{% static 'my_blog2/images/6.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-            </ul>
-        </div>
-        <div class="links">
-            <h2 class="hometitle">友情链接</h2>
-            <ul>
-                <li><a href="http://www.lmlblog.com">maolai博客</a></li>
-                <li><a href="http://www.lmlblog.com/category/moban">wordpress主题</a></li>
-                <li><a href="http://www.lmlblog.com/blog/1/">个人博客模板</a></li>
-                <li><a href="#">个人博客</a></li>
-            </ul>
-        </div>
-        <div class="ad"><img src="{% static 'my_blog2/images/8.jpg' %}"></div>
-    </aside>
-    <!--sidebar end-->
-</div>
-<!--wrapper end-->
-<footer>
-    <div class="footer">
-        <div class="wxbox">
-            <ul>
-                <li><img src="{% static 'my_blog2/images/pay.jpg' %}"><span>我的微信</span></li>
-                <li><img src="{% static 'my_blog2/images/wx.jpg' %}"><span>微信公众号</span></li>
-            </ul>
-        </div>
-        <div class="bzjj">
-            <h2>本站简介</h2>
-            <p>
-                wordpress博客园为大家提供各种wordpress主题下载,分享最及时好看的wordpress主题,wordpress模板,wordpress企业主题等信息,找wordpress主题就来wordpress主题。</p>
-        </div>
-        <div class="other">
-            <h2>网站版权</h2>
-            <p>本站所有主题/文章除标明原创外，均来自网络转载，版权归原作者所有，如果有侵犯到您的权益，请联系本站删除，谢谢！</p>
-            <p>&nbsp;</p>
-            <p>备案号：粤ICP备15025043号</p>
-        </div>
+            <div class="ad"><img src="{% static 'my_blog2/images/7.jpg' %}"></div>
+            <div class="about">
+                <h2 class="hometitle">关于我</h2>
+                <ul>
+                    <div class="avatar"><img src="{% static 'my_blog2/images/me.jpg' %}" alt=""></div>
+                    <p class="abname">lmlblog | maolai</p>
+                    <p class="abtext">无折腾,不生活。一个爱折腾，爱分享的90后。 </p>
+                    <li><a class="xlwb" href="http://weibo.com/lai88520" target="_blank"></a></li>
+                    <li><a class="txqq" href="http://wpa.qq.com/msgrd?v=3&uin=2195335317&site=qq&menu=yes"
+                           target="_blank"></a></li>
+                    <li><a class="rss" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2195335317@qq.com"
+                           target="_blank"></a></li>
+                    <li class="wxpic"><a class="wx" href=""></a><img src="{% static 'my_blog2/images/pay.jpg' %}"></li>
+                </ul>
+            </div>
+            <div class="tjlm">
+                <h2 class="hometitle">推荐栏目</h2>
+                <ul>
+                    <li><a href="">关于我</a></li>
+                    <li><a href="">模板分享</a></li>
+                    <li><a href="">博客主题</a></li>
+                    <li><a href="">cms主题</a></li>
+                    <li><a href="">动漫主题</a></li>
+                    <li><a href="http://www.lmlblog.com/tag/images-theme">图片主题</a></li>
+                </ul>
+            </div>
+            <div class="tpjx">
+                <h2 class="hometitle">图片主题</h2>
+                <ul>
+                    <li><a href="#"><i><img
+                            src="{% static 'my_blog2/images/1.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
+                    <li><a href="#"><i><img
+                            src="{% static 'my_blog2/images/2.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
+                    <li><a href="#"><i><img
+                            src="{% static 'my_blog2/images/3.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
+                    <li><a href="#"><i><img
+                            src="{% static 'my_blog2/images/4.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
+                    <li><a href="#"><i><img
+                            src="{% static 'my_blog2/images/5.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
+                    <li><a href="#"><i><img
+                            src="{% static 'my_blog2/images/6.jpg' %}"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
+                </ul>
+            </div>
+            <div class="links">
+                <h2 class="hometitle">友情链接</h2>
+                <ul>
+                    <li><a href="http://www.lmlblog.com">maolai博客</a></li>
+                    <li><a href="http://www.lmlblog.com/category/moban">wordpress主题</a></li>
+                    <li><a href="http://www.lmlblog.com/blog/1/">个人博客模板</a></li>
+                    <li><a href="#">个人博客</a></li>
+                </ul>
+            </div>
+            <div class="ad"><img src="{% static 'my_blog2/images/8.jpg' %}"></div>
+        </aside>
+        <!--sidebar end-->
     </div>
-</footer>
-<a href="#" class="cd-top">Top</a>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-</script>
-</body>
-</html>
+{% endblock content %}

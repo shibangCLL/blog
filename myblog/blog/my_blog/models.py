@@ -94,8 +94,8 @@ class Article(models.Model):
     def __str__(self):
         return self.title[:20]
 
-    # def get_absolute_url(self):
-    #     return reverse('blog:detail', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('my_blog:article_detail', kwargs={'id': self.id})
 
     def body_to_markdown(self):
         return markdown.markdown(self.body, extensions=[

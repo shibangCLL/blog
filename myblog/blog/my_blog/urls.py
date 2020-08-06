@@ -9,4 +9,5 @@ app_name = 'my_blog'
 urlpatterns = [
 path('article-list/', views.article_list, name='article_list'),
 path('article-detail/<int:id>/', views.article_detail, name='article_detail'),
+path('categories/<int:pk>/', views.category, name='category'),
 ]

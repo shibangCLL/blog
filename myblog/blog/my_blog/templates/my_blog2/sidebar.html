@@ -1,50 +1,6 @@
-{% extends "my_blog2/base.html" %}
+{% load static %}
 {% load blog_extras %}
-{% block title %}
-    首页
-{% endblock title %}
-
-{% block content %}
-    <div class="wrapper">
-        <main>
-            <div class="banner">
-                <div id="banner" class="fader">
-                    {% for carousel in carousels %}
-                        <li class="slide"><a href="{% url 'my_blog:article_detail' carousel.id %}"
-                                             title="极简WordPress个人博客主题"><img
-                                src="{{ carousel.image.url }}"><span
-                                class="imginfo">{{ carousel.title }}</span></a>
-                        </li>
-                    {% endfor %}
-                    <div class="fader_controls">
-                        <div class="page prev" data-target="prev">&lsaquo;</div>
-                        <div class="page next" data-target="next">&rsaquo;</div>
-                        <ul class="pager_list">
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--banner end-->
-            <div class="bloglist">
-                <ul>
-                    {% for article in articles %}
-                        <li><i class="blogpic"><a href="#"><img src="{{ article.image.url }}" alt=""> </a></i>
-                            <dl>
-                                <dt><a href="{% url 'my_blog:article_detail' article.id %}"
-                                       target="_blank">{{ article.title }}</a></dt>
-                                <dd><span class="bloginfo">{{ article.summary }}...</span>
-                                    <p class="timeinfo"><span class="lanmu"><a
-                                            href="http://www.lmlblog.com/category/moban"
-                                            target="_blank">{{ article.category }}</a></span><span
-                                            class="date">{{ article.create_date }}</span></p>
-                                    <a class="read" href="{% url 'my_blog:article_detail' article.id %}">阅读更多</a></dd>
-                            </dl>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </main>
-    <aside class="sidebar">
+<aside class="sidebar">
     <div class="fenlei">
         <ul class="flnav">
             <li class="flselect"><a href="#" title="最新文章" class="pall"></a></li>
@@ -117,6 +73,3 @@
     </div>
     <div class="ad"><img src="{{ author.img_url }}"></div>
 </aside>
-    </div>
-{% endblock content %}
-
