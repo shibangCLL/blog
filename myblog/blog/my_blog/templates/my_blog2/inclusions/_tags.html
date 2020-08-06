@@ -1,0 +1,11 @@
+<div class="tjlm">
+    <h2 class="hometitle">标签云</h2>
+    <ul>
+        {% for tag in tag_list %}
+            <li>
+                <a href="#">{{ tag.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+

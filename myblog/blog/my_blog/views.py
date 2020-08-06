@@ -2,11 +2,21 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Article, Carousel, AboutAuthor, Category
 
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 # 视图函数
 def article_list(request):
     articles = Article.objects.all()
+
+    paginator = Paginator(articles, 5)
+    # 获取 url 中的页码
+    page = request.GET.get('page')
+    # 将导航对象相应的页码内容返回给 articles
+
+    articles = paginator.page(page)
+
     carousels = Carousel.objects.all()
     articles_top = Article.objects.all().filter(is_top=True)
     author = AboutAuthor.objects.get(name='Chenglulu')

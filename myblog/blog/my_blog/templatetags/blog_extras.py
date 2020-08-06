@@ -12,6 +12,20 @@ def show_recent_posts(context, num=5):
     }
 
 
+@register.inclusion_tag('my_blog2/inclusions/_tags.html', takes_context=True)
+def show_tags(context):
+    return {
+        'tag_list': Tag.objects.all(),
+    }
+
+
+@register.inclusion_tag('my_blog2/inclusions/_archives.html', takes_context=True)
+def show_archives(context):
+    return {
+        'date_list': Article.objects.dates('create_date', 'month', order='DESC'),
+    }
+
+
 @register.inclusion_tag('my_blog2/inclusions/_author_recommend.html', takes_context=True)
 def show_author_recommend(context, num=5):
     return {
