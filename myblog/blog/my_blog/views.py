@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 
-from .models import Article, Carousel, AboutAuthor, Category,Tag
+from .models import Article, Carousel, AboutAuthor, Category, Tag
 
 from django.core.paginator import Paginator
 
@@ -10,6 +10,7 @@ from django.core.paginator import Paginator
 # 视图函数
 def article_list(request):
     articles = Article.objects.all()
+    allcategory = Category.objects.all()
 
     # paginator = Paginator(articles, 4)
     # # 获取 url 中的页码
@@ -21,7 +22,8 @@ def article_list(request):
     carousels = Carousel.objects.all()
     articles_top = Article.objects.all().filter(is_top=True)
     author = AboutAuthor.objects.get(name='Chenglulu')
-    context = {'articles': articles, 'carousels': carousels, 'articles_top': articles_top, 'author': author}
+    context = {'articles': articles, 'carousels': carousels, 'articles_top': articles_top, 'author': author,
+               'allcategory': allcategory}
     return render(request, 'my_blog2/index.html', context)
 
 
@@ -59,7 +61,6 @@ def tag(request, pk):
 
 def search(request):
     keyboard = request.GET.get('keyboard')
-    print(keyboard)
 
     if keyboard:
         post_list = Article.objects.filter(
@@ -71,3 +72,10 @@ def search(request):
 
     context = {'post_list': post_list}
     return render(request, 'my_blog2/list.html', context)
+
+
+# 时间轴
+def time_line(request):
+    articles = Article.objects.all()
+    context = {'articles': articles}
+    return render(request, 'my_blog2/time-line.html', context)

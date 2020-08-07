@@ -1,147 +1,62 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="gbk">
-<title>时间轴 - maolai博客</title>
-<meta name="keywords" content="个人博客,maolai个人博客,个人博客模板,maolai" />
-<meta name="description" content="maolai个人博客，提供个人博客模板免费资源下载的个人原创网站。" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/base.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
-<link href="css/m.css" rel="stylesheet">
-<script src="js/jquery.min.js" ></script>
-<script src="js/comm.js"></script>
-<!--[if lt IE 9]>
-<script src="js/modernizr.js"></script>
-<![endif]-->
-</head>
-<body>
-<header id="header">
-  <div class="navbar">
-    <div class="topbox">
-      <p class="welcome">时间悄然流逝，写一个时间轴这样的网站，可以记录我们所有的文章，方便我们查找和统计！</p>
-      <div class="searchbox">
-        <div id="search_bar" class="search_bar">
-          <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
-            <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
-            <input type="hidden" name="show" value="title" />
-            <input type="hidden" name="tempid" value="1" />
-            <input type="hidden" name="tbname" value="news">
-            <input type="hidden" name="Submit" value="搜索" />
-            <p class="search_ico"> <span></span></p>
-          </form>
-        </div>
-      </div>
+{% extends "my_blog2/base.html" %}
+{% load blog_extras %}
+{% block title %}
+    时间轴
+{% endblock title %}
+
+{% block content %}
+    <div class="wrapper">
+        <main>
+            <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">时光轴</a></h2>
+            <div class="timebox">
+                <ul>
+                    {% for article in articles %}
+                        <li><i class="blogpic"><a href="#"><img src="{{ article.image.url }}" alt=""> </a></i>
+                            <dl>
+                                <dt><a href="{% url 'my_blog:article_detail' article.id %}"
+                                       target="_blank">{{ article.title }}</a></dt>
+                                <dd><span class="bloginfo">{{ article.summary }}...</span>
+                                    <p class="timeinfo"><span class="lanmu"><a
+                                            href="http://www.lmlblog.com/category/moban"
+                                            target="_blank">{{ article.category }}</a></span><span
+                                            class="date">{{ article.create_date }}</span></p>
+                                    <a class="read" href="{% url 'my_blog:article_detail' article.id %}">阅读更多</a></dd>
+                            </dl>
+                        </li>
+                        <li><span>{{ article.create_date }}</span><i><a href="{% url 'my_blog:article_detail' article.id %}" target="_blank">{{ article.title }}</a></i></li>
+                    {% endfor %}
+                    <li><span>2018-06-17</span><i><a href="/" target="_blank">JustNews WordPress博客/自媒体/资讯主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Satellite7 v2.4 WordPress扁平化风格主题</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Vitality 中文原创WordPress主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">ThemeForest销量第一的wordpress主题</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">瀑布流式wordpress图片主题-Brick + Mason</a></i>
+                    </li>
+                    <li><span>2018-06-17</span><i><a href="/" target="_blank">个人博客用帝国cms 自定义页面 灵动标签调用网站所有信息</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">BeTheme v16.3 多功能响应式wordpress主题</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Third 原创WordPress企业主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Zappy Themes全套wordpress主题打包下载</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">wordpress视频主题-VideoPlus</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Slider Revolution 响应式幻灯滑块wordpress插件版</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms使用灵动标签实现当前栏目高亮的方法</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">帝国cms新闻系统增加图片集，并且列表模板调用所有小图实现方法</a></i>
+                    </li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Sage WordPress商城主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">Module 模块化多功能WordPress企业主题</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">Jaguar WordPress博客主题</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">html5个人博客模板simple</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">html5古典个人博客模板winter</a></i></li>
+                    <li><span>2018-04-27</span><i><a href="/" target="_blank">MobX-MIP WordPress百度MIP手机主题</a></i></li>
+                    <li><span>2018-06-18</span><i><a href="/" target="_blank">ShopIsle 免费WordPress商城主题</a></i></li>
+                </ul>
+            </div>
+            <div class="pagelist"><a title="Total record">&nbsp;<b>6</b> </a>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;<a
+                    href="">2</a>&nbsp;<a href="">3</a>&nbsp;<a href="">4</a>&nbsp;<a href="">5</a>&nbsp;<a
+                    href="">6</a>&nbsp;<a
+                    href="">下一页</a>&nbsp;<a href="">尾页</a></div>
+        </main>
+        {% include 'my_blog2/sidebar.html' %}
     </div>
-  </div>
-  <div class="header-navigation">
-    <nav>
-      <div class="logo"><a href="http://www.lmlblog.com">maolai个人博客</a></div>
-      <h2 id="mnavh"><span class="navicon"></span></h2>
-      <ul id="starlist">
-        <li><a href="index.html">网站首页</a></li>
-        <li><a href="http://www.lmlblog.com/wo/" target="_blank">关于我</a></li>
-        <li><a href="img.html">图片主题</a></li>
-        <li><a href="blog.html">博客主题</a></li>
-        <li class="menu"><a href="wordpress.html">wordpress</a>
-          <ul class="sub">
-            <li><a href="#">wordpress教程</a></li>
-            <li><a href="#">wordpress插件</a></li>
-          </ul>
-        </li>
-        <li><a href="table.html">table主题</a></li>
-        <li><a href="time.html">时间轴</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<div class="wrapper">
-  <main>
-    <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">时光轴</a></h2>
-    <div class="timebox">
-      <ul>
-        <li><span>2018-06-17</span><i><a href="/" target="_blank">JustNews WordPress博客/自媒体/资讯主题</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">Satellite7 v2.4 WordPress扁平化风格主题</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">Vitality 中文原创WordPress主题</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">ThemeForest销量第一的wordpress主题</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">瀑布流式wordpress图片主题-Brick + Mason</a></i></li>
-        <li><span>2018-06-17</span><i><a href="/" target="_blank">个人博客用帝国cms 自定义页面 灵动标签调用网站所有信息</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">BeTheme v16.3 多功能响应式wordpress主题</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">Third 原创WordPress企业主题</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">Zappy Themes全套wordpress主题打包下载</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">wordpress视频主题-VideoPlus</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">Slider Revolution 响应式幻灯滑块wordpress插件版</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">帝国cms使用灵动标签实现当前栏目高亮的方法</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">帝国cms新闻系统增加图片集，并且列表模板调用所有小图实现方法</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">Sage WordPress商城主题</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">Module 模块化多功能WordPress企业主题</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">Jaguar WordPress博客主题</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">html5个人博客模板simple</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">html5古典个人博客模板winter</a></i></li>
-        <li><span>2018-04-27</span><i><a href="/" target="_blank">MobX-MIP WordPress百度MIP手机主题</a></i></li>
-        <li><span>2018-06-18</span><i><a href="/" target="_blank">ShopIsle 免费WordPress商城主题</a></i></li>
-      </ul>
-    </div>
-    <div class="pagelist"><a title="Total record">&nbsp;<b>6</b> </a>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;<a href="">2</a>&nbsp;<a href="">3</a>&nbsp;<a href="">4</a>&nbsp;<a href="">5</a>&nbsp;<a href="">6</a>&nbsp;<a href="">下一页</a>&nbsp;<a href="">尾页</a></div>
-  </main>
-<aside class="sidebar">
-    <div class="about">
-      <h2 class="hometitle">关于我</h2>
-      <ul>
-        <div class="avatar"> <img src="images/me.jpg" alt=""> </div>
-        <p class="abname">lmlblog | maolai</p>
-        <p class="abtext">无折腾,不生活。一个爱折腾，爱分享的90后。 </p>
-        <li><a class="xlwb" href="http://weibo.com/lai88520" target="_blank"></a></li>
-        <li><a class="txqq" href="http://wpa.qq.com/msgrd?v=3&uin=2195335317&site=qq&menu=yes" target="_blank"></a></li>
-        <li><a class="rss" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2195335317@qq.com" target="_blank"></a></li>
-        <li class="wxpic"><a class="wx" href=""></a><img src="images/pay.jpg"></li>
-      </ul>
-    </div>
-    <div class="tjlm">
-      <h2 class="hometitle">推荐栏目</h2>
-       <ul>
-        <li><a href="">关于我</a></li>
-        <li><a href="">模板分享</a></li>
-        <li><a href="">博客主题</a></li>
-        <li><a href="">cms主题</a></li>
-        <li><a href="">动漫主题</a></li>
-        <li><a href="http://www.lmlblog.com/tag/images-theme">图片主题</a></li>
-      </ul>
-    </div>
-    <div class="tpjx">
-      <h2 class="hometitle">图片主题</h2>
-      <ul>
-        <li><a href="#"><i><img src="images/1.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-        <li><a href="#"><i><img src="images/2.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-        <li><a href="#"><i><img src="images/3.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-        <li><a href="#"><i><img src="images/4.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-        <li><a href="#"><i><img src="images/5.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-        <li><a href="#"><i><img src="images/6.jpg"></i><span>个人杂志博客WordPress主题Melina</span></a></li>
-      </ul>
-    </div>
-  </aside>
-</div>
-<!--wrapper end-->
-<footer>
-  <div class="footer">
-    <div class="wxbox">
-      <ul>
-        <li><img src="images/pay.jpg"><span>我的微信</span></li>
-        <li><img src="images/wx.jpg"><span>微信公众号</span></li>
-      </ul>
-    </div>
-    <div class="bzjj">
-      <h2>本站简介</h2>
-      <p>wordpress博客园为大家提供各种wordpress主题下载,分享最及时好看的wordpress主题,wordpress模板,wordpress企业主题等信息,找wordpress主题就来wordpress主题。</p>
-    </div>
-    <div class="other">
-      <h2>网站版权</h2>
-      <p>本站所有主题/文章除标明原创外，均来自网络转载，版权归原作者所有，如果有侵犯到您的权益，请联系本站删除，谢谢！</p>
-      <p>&nbsp;</p>
-      <p>备案号：粤ICP备15025043号</p>
-    </div>
-  </div>
-</footer>
-<a href="#" class="cd-top">Top</a>
-</body>
-</html>
+{% endblock content %}

@@ -45,3 +45,10 @@ def show_categories(context, num=5):
     return {
         'category_list': Category.objects.all(),
     }
+
+
+@register.inclusion_tag('my_blog2/inclusions/_categories_banner.html', takes_context=True)
+def show_categories_banner(context, num=5):
+    return {
+        'category_list': Category.objects.all(),
+    }
