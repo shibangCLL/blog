@@ -1,15 +1,13 @@
-asasdasd
-
 {% extends "my_blog2/base.html" %}
 {% load blog_extras %}
 {% block title %}
-    首页
+    棣栭〉
 {% endblock title %}
 
 {% block content %}
     <div class="wrapper">
         <main>
-            <h2 class="place">您现在的位置是：网站首页&gt; <a href="/">博客主题</a></h2>
+            <h2 class="place">鎮ㄧ幇鍦ㄧ殑浣嶇疆鏄細缃戠珯棣栭〉&gt; <a href="/">鍗氬涓婚</a></h2>
             <div class="bloglist">
                 <ul>
                     {% for article in post_list %}
@@ -22,7 +20,7 @@ asasdasd
                                             href="http://www.lmlblog.com/category/moban"
                                             target="_blank">{{ article.category }}</a></span><span
                                             class="date">{{ article.create_date }}</span></p>
-                                    <a class="read" href="{% url 'my_blog:article_detail' article.id %}">阅读更多</a></dd>
+                                    <a class="read" href="{% url 'my_blog:article_detail' article.id %}">闃呰鏇村</a></dd>
                             </dl>
                         </li>
                     {% endfor %}

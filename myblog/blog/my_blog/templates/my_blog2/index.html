@@ -11,7 +11,7 @@
                 <div id="banner" class="fader">
                     {% for carousel in carousels %}
                         <li class="slide"><a href="{% url 'my_blog:article_detail' carousel.id %}"
-                                             title="极简WordPress个人博客主题"><img
+                                             title="{{ carousel.title }}"><img
                                 src="{{ carousel.image.url }}"><span
                                 class="imginfo">{{ carousel.title }}</span></a>
                         </li>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <!--banner end-->
+
             <div class="bloglist">
                 <ul>
                     {% for article in articles %}
@@ -43,14 +43,12 @@
                     {% endfor %}
                 </ul>
             </div>
-        <!-- 页码导航 -->
 
             <div class="pagelist"><a title="Total record">&nbsp;<b>6</b> </a>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;<a href="">2</a>&nbsp;<a
                     href="">3</a>&nbsp;<a href="">4</a>&nbsp;<a href="">5</a>&nbsp;<a href="">6</a>&nbsp;<a
                     href="">下一页</a>&nbsp;<a href="">尾页</a></div>
         </main>
         {% include 'my_blog2/sidebar.html' %}
-
     </div>
 {% endblock content %}
 

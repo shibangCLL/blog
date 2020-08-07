@@ -2,15 +2,15 @@
 <header id="header">
     <div class="navbar">
         <div class="topbox">
-            <p class="welcome">这是文字详情页面，网站所有的详情页面都是统一的，设有简介、关键字词标签，点赞功能！</p>
+            <p class="welcome">如果重新开始，我会做什么?</p>
             <div class="searchbox">
                 <div id="search_bar" class="search_bar">
-                    <form id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
+                    <form id="searchform" action="{% url 'my_blog:search' %}" method="get" name="searchform">
                         <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
-                        <input type="hidden" name="show" value="title"/>
-                        <input type="hidden" name="tempid" value="1"/>
-                        <input type="hidden" name="tbname" value="news">
-                        <input type="hidden" name="Submit" value="搜索"/>
+{#                        <input type="hidden" name="show" value="title"/>#}
+{#                        <input type="hidden" name="tempid" value="1"/>#}
+{#                        <input type="hidden" name="tbname" value="news">#}
+{#                        <input type="hidden" name="Submit" value="搜索"/>#}
                         <p class="search_ico"><span></span></p>
                     </form>
                 </div>
