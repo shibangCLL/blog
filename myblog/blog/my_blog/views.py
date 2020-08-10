@@ -41,22 +41,25 @@ def article_detail(request, id):
 def category(request, pk):
     # 记得在开始部分导入 Category 类
     cate = get_object_or_404(Category, pk=pk)
+    title = cate.name
     post_list = Article.objects.filter(category=cate).order_by('-create_date')
-    return render(request, 'my_blog2/list.html', context={'post_list': post_list})
+    return render(request, 'my_blog2/list.html', context={'post_list': post_list, 'title': title})
 
 
 def archive(request, year, month):
     post_list = Article.objects.filter(create_date__year=year,
                                        create_date__month=month,
                                        ).order_by('-create_date')
-    return render(request, 'my_blog2/list.html', context={'post_list': post_list})
+    title = str(year)+'年'+str(month)+'月文章'
+    return render(request, 'my_blog2/list.html', context={'post_list': post_list, 'title': title})
 
 
 def tag(request, pk):
     # 记得在开始部分导入 Tag 类
     t = get_object_or_404(Tag, pk=pk)
+    title = t.name
     post_list = Article.objects.filter(tags=t).order_by('-create_date')
-    return render(request, 'my_blog2/list.html', context={'post_list': post_list})
+    return render(request, 'my_blog2/list.html', context={'post_list': post_list, 'title': title})
 
 
 def search(request):
@@ -70,7 +73,9 @@ def search(request):
     else:
         post_list = Article.objects.all()
 
-    context = {'post_list': post_list}
+    title = '包含'+keyboard+'的文章'
+
+    context = {'post_list': post_list, 'title': title}
     return render(request, 'my_blog2/list.html', context)
 
 
